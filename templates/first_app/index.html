@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<title>Django Guitar</title>
+	<link rel="stylesheet" type="text/css" href="{% static "css/myStyle.css" %}" >
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+<div class="jumbotron">
+	<h1>This is the great guitarist of all time</h1>
+	<h2>Here are your Access Records</h2>
+	<p>Please go to /users page to sign-up </p>
+	<div class="djangtwo">
+		{% if access_records %}
+			<table>
+				<thead>
+					<th>Site Name</th>
+					<th>Date Accessed</th>
+				</thead>
+			
+
+			{% for acc in access_records %}
+			<tr>
+				<td> {{ acc.name }}</td>
+				<td> {{ acc.date }}</td>
+			</tr>
+			{% endfor %}
+
+			</table>
+			{% else %}
+				<p>No Record fund!</p>
+		{% endif %}
+	</div>
+	<img src="{% static "images/DjangoLitchen.jpg" %}" alt="uh oh! didnt show">
+		}
+</div>
+</div>	
+</body>
+</html>
